@@ -8,12 +8,11 @@ class LocalStorageService {
 
   static Database? _db;
 
-  // ── Table names ───────────────────────────────────────────────────────────
   static const String tableProducts = 'products';
   static const String tablePreferences = 'preferences';
   static const String tableHistory = 'browsing_history';
 
-  // ── Init ──────────────────────────────────────────────────────────────────
+
 
   Future<Database> get database async {
     _db ??= await _initDatabase();
@@ -51,7 +50,6 @@ class LocalStorageService {
       )
     ''');
 
-    // User preferences  (type: 1 = liked, 0 = disliked)
     await db.execute('''
       CREATE TABLE $tablePreferences (
         productId   INTEGER PRIMARY KEY,
@@ -63,7 +61,6 @@ class LocalStorageService {
       )
     ''');
 
-    // In-app browsing history
     await db.execute('''
       CREATE TABLE $tableHistory (
         id          INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -76,7 +73,7 @@ class LocalStorageService {
     ''');
   }
 
-  // ── Products ──────────────────────────────────────────────────────────────
+
 
   Future<void> cacheProducts(List<Map<String, dynamic>> rows) async {
     final db = await database;
@@ -101,7 +98,7 @@ class LocalStorageService {
     return (result.first['count'] as int) > 0;
   }
 
-  // ── Preferences ───────────────────────────────────────────────────────────
+
 
   Future<void> upsertPreference(Map<String, dynamic> row) async {
     final db = await database;
@@ -135,7 +132,7 @@ class LocalStorageService {
     return rows.isNotEmpty ? rows.first : null;
   }
 
-  // ── Browsing History ──────────────────────────────────────────────────────
+
 
   Future<int> insertHistory(Map<String, dynamic> row) async {
     final db = await database;
@@ -161,7 +158,7 @@ class LocalStorageService {
     AppLogger.i('Cleared all browsing history', tag: 'LocalStorageService');
   }
 
-  // ── Teardown ──────────────────────────────────────────────────────────────
+
 
   Future<void> close() async {
     final db = await database;

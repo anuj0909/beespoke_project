@@ -5,7 +5,7 @@ import 'app_colors.dart';
 class AppStyles {
   AppStyles._();
 
-  // ── Typography ─────────────────────────────────────────────────────────────
+
 
   static TextStyle get headingXL => GoogleFonts.poppins(
     fontSize: 28,
@@ -77,7 +77,7 @@ class AppStyles {
     color: AppColors.primary,
   );
 
-  // ── Decorations ───────────────────────────────────────────────────────────
+
 
   static BoxDecoration get cardDecoration => BoxDecoration(
     color: AppColors.cardBg,
@@ -125,7 +125,7 @@ class AppStyles {
     ),
   );
 
-  // ── Theme ─────────────────────────────────────────────────────────────────
+
 
   static ThemeData get theme {
     return ThemeData(
@@ -183,14 +183,14 @@ class AppStyles {
     );
   }
 
-  // ── Spacing ───────────────────────────────────────────────────────────────
+
   static const double spacingXS = 4;
   static const double spacingS = 8;
   static const double spacingM = 16;
   static const double spacingL = 24;
   static const double spacingXL = 32;
 
-  // ── Radius ────────────────────────────────────────────────────────────────
+
   static const double radiusS = 8;
   static const double radiusM = 12;
   static const double radiusL = 16;
