@@ -25,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> _init() async {
     AppLogger.i('SplashScreen: initialising app', tag: 'SplashScreen');
 
-    // Ensure DB is initialised before navigation
     await LocalStorageService.instance.database;
 
     await Future.delayed(const Duration(milliseconds: 2200));
@@ -41,7 +40,6 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo container
               Container(
                 width: 100,
                 height: 100,
@@ -69,7 +67,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 28),
 
-              // App name
               Text(
                 'StyleSwipe',
                 style: AppStyles.headingXL.copyWith(
@@ -97,7 +94,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
               const SizedBox(height: 60),
 
-              // Loading indicator
               SizedBox(
                 width: 160,
                 child: ClipRRect(
